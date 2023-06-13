@@ -15,6 +15,17 @@ services:
     networks:
       - docker_network
 
+  ca-msa-creditoauto:
+    container_name: ca-msa-creditoauto
+    image: robertcabrerapichincha/ca-msa-creditoauto:latest
+    restart: always
+    ports:
+      - '8080:8080'
+    networks:
+      - docker_network
+    depends_on:
+      - postgresdb
+
 networks:
   docker_network:
     driver: bridge
