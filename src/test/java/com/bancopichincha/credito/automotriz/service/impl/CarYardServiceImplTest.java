@@ -110,10 +110,8 @@ public class CarYardServiceImplTest {
     when(carYardRepository.findById(anyLong())).thenReturn(Optional.empty());
     when(messageService.getMessage(any())).thenReturn("");
 
-    Assertions.assertThrows(
-        CarYardNotFoundException.class, () -> carYardService.delete(anyLong()));
+    Assertions.assertThrows(CarYardNotFoundException.class, () -> carYardService.delete(anyLong()));
   }
-
 
   @Test
   public void shouldThrowWithOperationsExceptionWhenDeleteIsPerformed() {
@@ -125,7 +123,6 @@ public class CarYardServiceImplTest {
     when(saleExecutiveRepository.existsCarYardInformation(anyLong())).thenReturn(true);
     when(messageService.getMessage(any())).thenReturn("");
 
-    // When-Then
     Assertions.assertThrows(
         CarYardWithOperationsException.class, () -> carYardService.delete(anyLong()));
   }

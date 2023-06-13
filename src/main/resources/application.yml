@@ -10,7 +10,7 @@ spring:
     encoding: UTF-8
 
   datasource:
-    url: jdbc:postgresql://postgresdb:5432/credito_auto
+    url: jdbc:postgresql://localhost:5432/credito_auto
     username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
