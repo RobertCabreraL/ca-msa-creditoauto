@@ -1,0 +1,108 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+enum Status {
+ ENABLED
+ DISABLED
+}
+
+enum CreditApplicationStatus {
+ REGISTERED
+ SENT
+ CANCELLED
+}
+
+class Person {
+- Integer id
+- String identification
+- String name
+- String lastname
+- String address
+- String phone
+- Integer age
+}
+
+''''CONSULTAR SOBRE ESTO, NO MENCIONA LA TABLA CUSTOMER!!
+class Customer {
+- Date birthday
+- String maritalStatus
+- String partnerIdentification
+- String partnerName
+- String creditSubject
+- Status status
+}
+
+class SaleExecutive {
+- String cellphone
+- CarYard carYard
+- Status status
+}
+
+class Brand {
+- Integer id
+- String name
+- Status status
+}
+
+''???? Type
+class Vehicle {
+- Integer id
+- String plate
+- String model
+- String nroChassis
+- Integer brandId
+- String type
+- Integer engineCapacity
+- BigDecimal appraisal
+}
+
+''nroSalesPoint ????
+class CarYard {
+- Integer id
+- String name
+- String address
+- String phone
+- Integer nroSalesPoint
+- Status status
+}
+
+class CustomerAssignment {
+- Customer customer
+- CarYard carYard
+- Date assignmentDate
+}
+
+''ejecutivoDeVentaId ??
+''entrada es la Inicial???
+class CreditApplication {
+- Integer id
+- Date elaborationDate
+- Customer customer
+- CarYard carYard
+- Vehicle vehicle
+- Integer monthMax
+- Integer quotes
+- BigDecimal initialAmount
+- SaleExecutive salesExecutive
+- String observation
+- CreditApplicationStatus status
+}
+
+
+Brand "1" -- "*" Vehicle
+
+Person <|- Customer
+Person <|- SaleExecutive
+
+Customer "1" -- "*" CustomerAssignment
+CarYard "1" -- "*" CustomerAssignment
+
+Customer "1" -- "*" CreditApplication
+CarYard "1" -- "*" CreditApplication
+Vehicle "1" -- "*" CreditApplication
+SaleExecutive "1" -- "*" CreditApplication
+
+CreditApplicationStatus -. CreditApplication
+Brand -. Status
+
+@enduml

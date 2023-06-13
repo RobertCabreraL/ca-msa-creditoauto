@@ -1,0 +1,1286 @@
+{
+	"info": {
+		"_postman_id": "6eec03a0-a198-4412-b5e1-62b81edbc165",
+		"name": "CreditoVehicular (EjercicioPrueba)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27815298"
+	},
+	"item": [
+		{
+			"name": "Administrar Vehiculos",
+			"item": [
+				{
+					"name": "Registrar Vehiculo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"plate\": \"ACO-5568\",\r\n    \"model\": \"Suzuki\",\r\n    \"nroChassis\": \"ASDB-98SD5SD6F46F\",\r\n    \"brandId\": 3,\r\n    \"type\": \"SUV\",\r\n    \"engineCapacity\": 2000,\r\n    \"appraisal\": 6000.00,\r\n    \"year\": 2023\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/vehicles",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Vehiculo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"plate\": \"ACO-5566\",\r\n    \"model\": \"Suzuki\",\r\n    \"nroChassis\": \"ASDB-98SD5SD6F46F\",\r\n    \"brandId\": 3,\r\n    \"type\": \"SUV\",\r\n    \"availabiltyStatus\": \"AVAILABLE\",\r\n    \"engineCapacity\": 2000,\r\n    \"appraisal\": 6000.00,\r\n    \"year\": 2023\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/vehicles/:plate",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								":plate"
+							],
+							"variable": [
+								{
+									"key": "plate",
+									"value": "ACO-5566"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vender Vehiculo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/vehicles/:plate/sold",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								":plate",
+								"sold"
+							],
+							"variable": [
+								{
+									"key": "plate",
+									"value": "ACO-5568"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Vehiculo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/vehicles/:plate",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								":plate"
+							],
+							"variable": [
+								{
+									"key": "plate",
+									"value": "ACO-5566"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Vehiculos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/vehicles",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "Jeep",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "2023",
+									"disabled": true
+								},
+								{
+									"key": "brandId",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar Vehiculos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/vehicle",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "Jeep",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2023",
+											"disabled": true
+										},
+										{
+											"key": "brandId",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 21:59:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"plate\": \"ASD-6546\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 2,\n            \"name\": \"KIA\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Jeep\",\n        \"engineCapacity\": 4000,\n        \"appraisal\": 36000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 2,\n        \"plate\": \"ABC-1655\",\n        \"model\": \"Vitara\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 1,\n            \"name\": \"Chevrolet\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Luxury\",\n        \"engineCapacity\": 2000,\n        \"appraisal\": 24000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 3,\n        \"plate\": \"ASP-6613\",\n        \"model\": \"Vitara\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 3,\n            \"name\": \"Hyundai\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": null,\n        \"engineCapacity\": 2800,\n        \"appraisal\": 35000,\n        \"year\": 2022,\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 4,\n        \"plate\": \"POC-5566\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 4,\n            \"name\": \"Toyota\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": null,\n        \"engineCapacity\": 1500,\n        \"appraisal\": 15000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    }\n]"
+						},
+						{
+							"name": "Listar Vehiculos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/vehicle?model=Jeep",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "Jeep"
+										},
+										{
+											"key": "year",
+											"value": "2023",
+											"disabled": true
+										},
+										{
+											"key": "brandId",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 22:00:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"plate\": \"ASD-6546\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 2,\n            \"name\": \"KIA\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Jeep\",\n        \"engineCapacity\": 4000,\n        \"appraisal\": 36000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    }\n]"
+						},
+						{
+							"name": "Listar Vehiculos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/vehicle?brandId=2",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "Jeep",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2023",
+											"disabled": true
+										},
+										{
+											"key": "brandId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 21:59:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"plate\": \"ASD-6546\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 2,\n            \"name\": \"KIA\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Jeep\",\n        \"engineCapacity\": 4000,\n        \"appraisal\": 36000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    }\n]"
+						},
+						{
+							"name": "Listar Vehiculos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/vehicle?model=Jeep&brandId=2",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "Jeep"
+										},
+										{
+											"key": "year",
+											"value": "2023",
+											"disabled": true
+										},
+										{
+											"key": "brandId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 21:59:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"plate\": \"ASD-6546\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 2,\n            \"name\": \"KIA\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Jeep\",\n        \"engineCapacity\": 4000,\n        \"appraisal\": 36000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    }\n]"
+						},
+						{
+							"name": "Listar Vehiculos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/vehicle?model=Jeep&year=2023&brandId=2",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "Jeep"
+										},
+										{
+											"key": "year",
+											"value": "2023"
+										},
+										{
+											"key": "brandId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 21:59:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"plate\": \"ASD-6546\",\n        \"model\": \"Jeep\",\n        \"nroChassis\": \"ASDB-65654ASDASD\",\n        \"brand\": {\n            \"id\": 2,\n            \"name\": \"KIA\",\n            \"status\": \"ENABLED\"\n        },\n        \"type\": \"Jeep\",\n        \"engineCapacity\": 4000,\n        \"appraisal\": 36000,\n        \"year\": 2023,\n        \"status\": \"ENABLED\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Administrar Patio de Autos",
+			"item": [
+				{
+					"name": "Crear Patio de Autos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"carYardId\", pm.response.json().id);\r",
+									"console.log(pm.environment.get(\"carYardId\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Patio Ventas 9\",\r\n    \"address\": \"Calle principal Esquina Nro 19\",\r\n    \"phone\": \"+593-4-3731701\",\r\n    \"nroSalesPoint\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/car_yards",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"car_yards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Patio de Autos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Patio Ventas 93\",\r\n    \"address\": \"Calle principal Esquina Nro 15\",\r\n    \"phone\": \"+593-4-3731700\",\r\n    \"nroSalesPoint\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/car_yards/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"car_yards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Patio de Autos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/car_yards/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"car_yards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Patio de Autos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/car_yards",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"car_yards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Patio de Autos por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/car_yards/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"car_yards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asignacion de Clientes",
+			"item": [
+				{
+					"name": "Crear Asignacion de Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 2,\r\n    \"assignmentDate\": \"2023-06-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/customer_assignments",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"customer_assignments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear Asignacion de Clientes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerIdentification\": \"7842296\",\r\n    \"carYardId\": 2,\r\n    \"assignmentDate\": \"16/06/2023\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 12 Jun 2023 05:34:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"customer\": {\n        \"identification\": \"7842296\",\n        \"name\": \"Robert\",\n        \"lastname\": \"Cabrera\",\n        \"age\": 32,\n        \"birthday\": \"1990-01-19T04:00:00.000+00:00\",\n        \"address\": \"Barrio Cordecruz\",\n        \"phone\": \"+591 73655582\",\n        \"maritalStatus\": \"SOLTERO\",\n        \"partnerIdentification\": null,\n        \"partnerName\": null,\n        \"creditSubject\": \"CREDIT_SUBJECT\"\n    },\n    \"carYard\": {\n        \"id\": 2,\n        \"name\": \"Patio Ventas 2\",\n        \"address\": \"Calle principal Esquina Nro 19\",\n        \"phone\": \"+593-4-3731701\",\n        \"nroSalesPoint\": 4,\n        \"status\": \"ENABLED\"\n    },\n    \"assignmentDate\": \"2023-06-16\"\n}"
+						},
+						{
+							"name": "Crear Asignacion de Clientes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 2,\r\n    \"assignmentDate\": \"2023-06-10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 07:08:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"customer\": {\n        \"identification\": \"7842297\",\n        \"name\": \"Ana\",\n        \"lastname\": \"Gómez\",\n        \"age\": 23,\n        \"birthday\": \"2000-01-03T05:00:00.000+00:00\",\n        \"address\": \"Dirección_1\",\n        \"phone\": \"555-0002\",\n        \"maritalStatus\": \"Soltera\",\n        \"partnerIdentification\": \"\",\n        \"partnerName\": \"\",\n        \"creditSubject\": \"NO_CREDIT_SUBJECT\"\n    },\n    \"carYard\": {\n        \"id\": 2,\n        \"name\": \"Showroom\",\n        \"address\": \"Calle Secundaria 123\",\n        \"phone\": \"9499949\",\n        \"nroSalesPoint\": 9,\n        \"status\": \"ENABLED\"\n    },\n    \"assignmentDate\": \"2023-06-10\"\n}"
+						},
+						{
+							"name": "Crear Asignacion de Clientes",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 2,\r\n    \"assignmentDate\": \"2023-06-10\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 07:08:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"customer\": {\n        \"identification\": \"7842297\",\n        \"name\": \"Ana\",\n        \"lastname\": \"Gómez\",\n        \"age\": 23,\n        \"birthday\": \"2000-01-03T05:00:00.000+00:00\",\n        \"address\": \"Dirección_1\",\n        \"phone\": \"555-0002\",\n        \"maritalStatus\": \"Soltera\",\n        \"partnerIdentification\": \"\",\n        \"partnerName\": \"\",\n        \"creditSubject\": \"NO_CREDIT_SUBJECT\"\n    },\n    \"carYard\": {\n        \"id\": 2,\n        \"name\": \"Showroom\",\n        \"address\": \"Calle Secundaria 123\",\n        \"phone\": \"9499949\",\n        \"nroSalesPoint\": 9,\n        \"status\": \"ENABLED\"\n    },\n    \"assignmentDate\": \"2023-06-10\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Editar Asignacion de Clientes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 3,\r\n    \"assignmentDate\": \"2023-06-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/customer_assignments/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"customer_assignments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Editar Asignacion de Clientes",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 3,\r\n    \"assignmentDate\": \"2023-06-24\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments/:id",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 07:08:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"customer\": {\n        \"identification\": \"7842297\",\n        \"name\": \"Ana\",\n        \"lastname\": \"Gómez\",\n        \"age\": 23,\n        \"birthday\": \"2000-01-03T05:00:00.000+00:00\",\n        \"address\": \"Dirección_1\",\n        \"phone\": \"555-0002\",\n        \"maritalStatus\": \"Soltera\",\n        \"partnerIdentification\": \"\",\n        \"partnerName\": \"\",\n        \"creditSubject\": \"NO_CREDIT_SUBJECT\"\n    },\n    \"carYard\": {\n        \"id\": 3,\n        \"name\": \"Centro Exposicion\",\n        \"address\": \"Calle Centrica\",\n        \"phone\": \"5465465\",\n        \"nroSalesPoint\": 5,\n        \"status\": \"ENABLED\"\n    },\n    \"assignmentDate\": \"2023-06-24\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar Asignacion de Clientes",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/customer_assignments/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"customer_assignments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Eliminar Asignacion de Clientes",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments/:id",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 07:09:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Obtener Asignacion de Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/customer_assignments",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"customer_assignments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener Asignacion de Clientes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/customer_assignments",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"customer_assignments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jun 2023 07:09:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"customer\": {\n            \"identification\": \"7842297\",\n            \"name\": \"Ana\",\n            \"lastname\": \"Gómez\",\n            \"age\": 23,\n            \"birthday\": \"2000-01-03T05:00:00.000+00:00\",\n            \"address\": \"Dirección_1\",\n            \"phone\": \"555-0002\",\n            \"maritalStatus\": \"Soltera\",\n            \"partnerIdentification\": \"\",\n            \"partnerName\": \"\",\n            \"creditSubject\": \"NO_CREDIT_SUBJECT\"\n        },\n        \"carYard\": {\n            \"id\": 3,\n            \"name\": \"Centro Exposicion\",\n            \"address\": \"Calle Centrica\",\n            \"phone\": \"5465465\",\n            \"nroSalesPoint\": 5,\n            \"status\": \"ENABLED\"\n        },\n        \"assignmentDate\": \"2023-06-24\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Generar Solicitud de Credito",
+			"item": [
+				{
+					"name": "Crear Solicitud de Credito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"elaborationDate\": \"2023-06-23\",\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 1,\r\n    \"vehiclePlate\": \"ACO-5567\",\r\n    \"monthMax\": 28,\r\n    \"quotes\": 28,\r\n    \"initialAmount\": 4000,\r\n    \"saleExecutiveId\": 21,\r\n    \"observation\": \"Ninguna\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/credit_applications",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"credit_applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Solicitud de Credito",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"elaborationDate\": \"2023-06-23\",\r\n    \"customerIdentification\": \"7842297\",\r\n    \"carYardId\": 1,\r\n    \"vehiclePlate\": \"ACO-5567\",\r\n    \"monthMax\": 28,\r\n    \"quotes\": 28,\r\n    \"initialAmount\": 4000,\r\n    \"saleExecutiveId\": 21,\r\n    \"observation\": \"Ninguna\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/credit_applications/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"credit_applications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Solicitud de Credito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/credit_applications/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"credit_applications",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Solicitud de Credito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/credit_applications",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"credit_applications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cargas Iniciales",
+			"item": [
+				{
+					"name": "Marcas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/api/brands",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"brands"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/brand",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"brand"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 04:14:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Chevrolet\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"KIA\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Hyundai\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Toyota\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Great Wall\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"JAC\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Chery\",\n        \"status\": \"ENABLED\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Renault\",\n        \"status\": \"ENABLED\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Guardar Marcas Batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Rcabrera/Desktop/Cargas Masivas/Cargas Masivas - Marcas.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/api/brand",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"brand"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "carYardId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "customerId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "creditApplicationId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
